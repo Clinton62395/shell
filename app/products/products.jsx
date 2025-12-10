@@ -1,9 +1,16 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function Products() {
   const product = [
     {
-      id: 1,
+      id: "1",
       image: require("@/assets/images/image1.png"),
       price: "$29.99",
       title: "Smart Study Lamp",
@@ -11,7 +18,7 @@ export default function Products() {
         "A dimmable LED study lamp with adjustable brightness and a flexible neck. Perfect for homework, reading, and late-night studying. Comes with a built-in USB port for charging devices.",
     },
     {
-      id: 2,
+      id: "2",
       image: require("@/assets/images/image2.png"),
       price: "$29.99",
       title: "Smart Study Lamp",
@@ -19,7 +26,7 @@ export default function Products() {
         "A dimmable LED study lamp with adjustable brightness and a flexible neck. Perfect for homework, reading, and late-night studying. Comes with a built-in USB port for charging devices.",
     },
     {
-      id: 3,
+      id: "3",
       image: require("@/assets/images/image3.png"),
       price: "$29.99",
       title: "Smart Study Lamp",
@@ -30,9 +37,11 @@ export default function Products() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        {product.map((item) => (
-          <View key={item.id}>
+      <FlatList
+        data={product}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.imageContainer}>
             <Image
               source={item.image}
               style={{ width: 300, height: 350, resizeMode: "contain" }}
@@ -47,8 +56,8 @@ export default function Products() {
               <Text>View product</Text>
             </TouchableOpacity>
           </View>
-        ))}
-      </View>
+        )}
+      />
     </View>
   );
 }
@@ -61,6 +70,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: 20,
+  },
+  image: {
     flexDirection: "column",
+    alignItems: "center",
+  },
+  viewButtton: {
+    backgroundColor: "#99ECCE",
+    padding: 10,
+    borderRadius: 15,
+    marginTop: 10,
+  },
+  priceTitle: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: 300,
+    marginVertical: 5,
   },
 });
