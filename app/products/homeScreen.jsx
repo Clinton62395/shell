@@ -1,3 +1,5 @@
+import { View } from "react-native";
+
 const fakeProducts = [
   {
     id: 1,
@@ -18,6 +20,22 @@ const fakeProducts = [
     desc: "Never run out of juice",
   },
 ];
-export default function HomeScreen({ navigation }) {
-  const renderProucts = (item) => {};
+export default function HomeScreen() {
+  const renderProucts = (item) => {
+
+    
+    return(
+        <View>
+
+        </View>
+    )
+
+  };
+
+
+  return(
+    <View>
+        
+    </View>
+  )
 }

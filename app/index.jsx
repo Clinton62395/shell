@@ -1,87 +1,41 @@
-import {
-  Image,
-  ImageBackground,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { useRouter } from "expo-router";
+import React, { useEffect } from "react";
+import { Image, StyleSheet, View } from "react-native";
 
 export default function Index() {
+  // const [isLoading, setIsloading] = React.useState(false);
+
+  const router = useRouter();
+
+  // router.push("landingPage");
+  useEffect(() => {
+    setTimeout(() => {
+      router.push("/products/landingpage");
+    }, 3000);
+  });
+
   return (
-    <ImageBackground
-      source={require("@/assets/images/backround image.png")}
-      style={styles.container}
-      imageStyle={styles.backround}
-    >
-      <Image source={require("@/assets/images/logo.png")} style={styles.logo} />
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
-
-      <View style={styles.overlay}></View>
-
-      <View style={styles.footerContent}>
-        <Text style={styles.title}>Plan your</Text>
-        <Text style={styles.text}>Luxurious {"\n"} Vacation</Text>
-        <TouchableOpacity style={styles.containerButton}>
-          <Text style={styles.buttonText}>Explore</Text>
-        </TouchableOpacity>
-      </View>
-    </ImageBackground>
+    <View style={styles.container}>
+      <Image
+        source={require("@/assets/images/Group 1204.png")}
+        style={styles.imag}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignContent: "center",
-    width: "100%",
-    height: "100%",
-  },
-  backround: {
-    resizeMode: "cover",
-  },
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0,0,0,0.3)",
-  },
-  logo: {
-    alignItems: "center",
-    height: 120,
+    backgroundColor: "#ddd",
+    alignContent: "center",
     justifyContent: "center",
-    alignSelf: "center",
+    alignItems: "center",
+  },
+
+  imag: {
     width: 120,
+    height: 120,
     resizeMode: "contain",
-  },
-  text: {
-    color: "white",
-    fontSize: 33,
-    marginHorizontal: 5,
-    fontWeight: "900",
-  },
-  title: {
-    color: "white",
-    fontSize: 20,
-    marginVertical: 5,
-    marginHorizontal: 5,
-    fontWeight: "300",
-  },
-  containerButton: {
-    width: "100%",
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    backgroundColor: "#176FF2",
-    borderRadius: 24,
-    marginTop: 20,
-  },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "800",
-    textAlign: "center",
-  },
-  footerContent: {
-    marginTop: 350,
-    marginLeft: 10,
   },
 });
