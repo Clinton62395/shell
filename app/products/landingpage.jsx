@@ -20,7 +20,7 @@ export default function LandingPge() {
         <TouchableOpacity style={styles.buttonAbove}>
           <Text
             style={styles.buttonTitle}
-            onPress={() => router.push("/products/products")}
+            onPress={() => router.push("/products/productsList")}
           >
             Đăng nhập{" "}
           </Text>

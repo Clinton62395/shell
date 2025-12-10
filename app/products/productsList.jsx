@@ -1,10 +1,12 @@
+import { FlatList } from "react-native";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Products() {
   const product = [
     {
       id: 1,
-      image: require("@/assets/images/image1.png"),
+      image: require("@/assets/images/favicon.png"),
       price: "$29.99",
       title: "Smart Study Lamp",
       description:
@@ -20,7 +22,7 @@ export default function Products() {
     },
     {
       id: 3,
-      image: require("@/assets/images/image3.png"),
+      image: "",
       price: "$29.99",
       title: "Smart Study Lamp",
       description:
@@ -29,9 +31,9 @@ export default function Products() {
   ];
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>
-        {product.map((item) => (
+        {/* {product.map((item) => (
           <View key={item.id}>
             <Image
               source={item.image}
@@ -47,9 +49,32 @@ export default function Products() {
               <Text>View product</Text>
             </TouchableOpacity>
           </View>
-        ))}
+        ))} */}
+
+        <FlatList
+          data={product}
+          renderItem={({ item }) => (
+            <View>
+              <Image
+                source={item.image}
+                style={{ width: 300, height: 350, resizeMode: "contain" }}
+              />
+              <View style={styles.priceTitle}>
+                <Text>{item.title}</Text>
+                <Text>{item.price}</Text>
+              </View>
+              <Text>{item.description}</Text>
+
+              <TouchableOpacity style={styles.viewButtton}>
+                <Text>View product</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+          keyExtractor={(item) => item.id}
+  
+        />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
