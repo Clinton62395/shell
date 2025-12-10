@@ -10,7 +10,7 @@ export default function Products() {
       price: "$29.99",
       title: "Smart Study Lamp",
       description:
-        "A dimmable LED study lamp with adjustale brightness and a flexible neck. Perfect for homework, reading, and late-night studying. Comes with a built-in USB port for charging devices.",
+        "A dimmable LED studlamp with adjustale brightness and a flexible neck. Perfect for homework, reading, and late-night studying. Comes with a built-in USB port for charging devices.",
     },
     {
       id: 2,
