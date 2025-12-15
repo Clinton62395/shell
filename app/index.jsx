@@ -10,7 +10,7 @@ export default function Index() {
   // router.push("landingPage");
   useEffect(() => {
     setTimeout(() => {
-      router.push("/products/landingpage");
+      router.push("/tabulations/(tabs)/");
     }, 3000);
   });
 
